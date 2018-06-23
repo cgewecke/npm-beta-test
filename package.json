@@ -1,0 +1,23 @@
+{
+  "name": "npm-beta-test",
+  "version": "1.0.0",
+  "description": "Repo to test a script that manages tagged releases of branches at an arbitary prerelease tag.",
+  "main": "index.js",
+  "scripts": {
+    "publish": "node ./publish.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgewecke/npm-beta-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cgewecke/npm-beta-test/issues"
+  },
+  "homepage": "https://github.com/cgewecke/npm-beta-test#readme",
+  "dependencies": {
+    "semver": "^5.5.0"
+  }
+}
