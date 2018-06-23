@@ -66,11 +66,10 @@ version = semver.inc(version, prerelease, tag);
 console.log(`npm version will be: ${version}\n`)
 
 const warn = `The next command will increment version, commit, ` +
-             `publish and push your changes.\n`;
+             `publish and push your changes to\n` +
+             `branch '${branch}' as truffle@${version} | truffle@${tag}\n\n`;
 
-const quest = `Are you sure you want to publish:\n` +
-              `Branch '${branch}' as truffle@${version} | truffle@${tag}\n` +
-              `(y/n) >> `;
+const quest = `Are you sure you want to publish: (y/n) >> `;
 
 const input = readline.createInterface({
   input: process.stdin,
