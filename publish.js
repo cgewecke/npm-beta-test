@@ -68,8 +68,9 @@ console.log(`npm version will be: ${version}\n`)
 const warn = `The next command will increment version, commit, ` +
              `publish and push your changes.\n`;
 
-const quest = `Are you sure you want to publish branch '${branch}'' ` +
-              `as truffle@${version} | truffle@${tag} (y/n) >> `
+const quest = `Are you sure you want to publish:\n` +
+              `Branch '${branch}' as truffle@${version} | truffle@${tag}\n` +
+              `(y/n) >> `;
 
 const input = readline.createInterface({
   input: process.stdin,
@@ -81,6 +82,8 @@ input.question(warn + quest, (answer) => {
     'y', 'yes', 'YES', 'Yes', 'OK', 'Ok', 'ok', 'peace', 'np', 'almost'
   ];
 
+  const exit = `Exiting without publishing.`
+
   // npm version updates the package and commits
   if (affirmations.includes(answer.trim())){
     exec(`npm version ${version}`, opts);
@@ -88,6 +91,6 @@ input.question(warn + quest, (answer) => {
     exec(`git push`);
     input.close();
   }
-
+  console.log(exit);
   input.close();
 });
