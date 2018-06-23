@@ -9,7 +9,7 @@
  * NB: It updates the package version, publishes, makes a commit and pushes.
  * *****************************************************************************
  * USAGE:
- *   node ./version.js <branch> <tag>
+ *   node ./prerelease.js <branch> <tag>
  *
  * ALSO:
  *   npm run publish:byoc
@@ -79,6 +79,9 @@ const input = readline.createInterface({
 });
 
 input.question(warn + quest, (answer) => {
+  const reminder = `\n` +
+  `** Remember: don't overwrite this version in the 'package.json' when you merge develop in. **\n`;
+
   const affirmations = [
     'y', 'yes', 'YES', 'Yes', 'OK', 'Ok', 'ok', 'peace', 'np', 'almost'
   ];
@@ -90,6 +93,7 @@ input.question(warn + quest, (answer) => {
     exec(`npm version ${version}`, opts);
     exec(`npm publish --tag ${tag}`, opts);
     exec(`git push`);
+    console.log(reminder);
     input.close();
     return;
   }
