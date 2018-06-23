@@ -50,7 +50,6 @@ exec(`git checkout ${branch}`, opts);
 console.log();
 
 // Read package
-console.log('Loading package');
 let pkg = fs.readFileSync('./package.json');
 pkg = JSON.parse(pkg);
 
@@ -63,11 +62,14 @@ let version;
 
 version = semver.inc(version, prerelease, tag);
 
-console.log(`npm version will be: ${version}\n`)
-
-const warn = `The next command will increment version, commit, ` +
-             `publish and push your changes to\n` +
-             `branch '${branch}' as truffle@${version} | truffle@${tag}\n\n`;
+const warn = `You are about to:\n` +
+             `  + increment the package version to ${version}\n` +
+             `  + publish the package on npm at tag: '${tag}'\n` +
+             `  + commit and push this change to branch: '${branch}'\n\n` +
+             `  ------------------------------------------\n` +
+             '  Version'.padEnd(25) + '| Tag\n' +
+             `  ------------------------------------------\n` +
+             `  truffle@${version}`.padEnd(25) + `| truffle@${tag}\n\n`
 
 const quest = `Are you sure you want to publish: (y/n) >> `;
 
