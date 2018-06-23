@@ -30,6 +30,21 @@ const premajor = 'premajor';
 const prerelease = 'prerelease';
 const opts = {stdio:[0,1,2]};
 
+// Validate args
+if (!branch || !tag ){
+  const help =
+  `** You forgot to pass in some arguments **\n\n` +
+  `USAGE:\n` +
+  `   node ./publishPrerelase <branch> <tag>\n\n` +
+
+  `Ex: node ./publishPrerelease next next\n` +
+  `>>  truffle@4.1.12-next.0  truffle@next\n`;
+
+  console.log(help);
+  return;
+}
+
+
 // Checkout branch
 exec(`git checkout ${branch}`, opts);
 console.log();
