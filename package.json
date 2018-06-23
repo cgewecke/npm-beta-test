@@ -4,7 +4,7 @@
   "description": "Repo to test a script that manages tagged releases of branches at an arbitary prerelease tag.",
   "main": "index.js",
   "scripts": {
-    "publish": "node ./publish.js",
+    "prerelease": "node ./publish.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
