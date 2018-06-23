@@ -1,6 +1,6 @@
 {
   "name": "npm-beta-test",
-  "version": "2.0.0-next.2",
+  "version": "1.0",
   "description": "Repo to test a script that manages tagged releases of branches at an arbitary prerelease tag.",
   "main": "index.js",
   "scripts": {
