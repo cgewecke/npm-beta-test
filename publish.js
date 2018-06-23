@@ -91,6 +91,7 @@ input.question(warn + quest, (answer) => {
     exec(`npm publish --tag ${tag}`, opts);
     exec(`git push`);
     input.close();
+    return;
   }
   console.log(exit);
   input.close();
