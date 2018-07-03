@@ -89,6 +89,7 @@ input.question(warn + quest, (answer) => {
   if (affirmations.includes(answer.trim())){
     exec(`npm version ${version}`, opts);
     exec(`npm publish --tag ${tag}`, opts);
+    exec(`git commit -a -m 'Upgrade version to ${version}'`, opts);
     exec(`git push`);
     input.close();
     return;
