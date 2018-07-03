@@ -89,7 +89,16 @@ input.question(warn + quest, (answer) => {
   if (affirmations.includes(answer.trim())){
     exec(`npm version ${version}`, opts);
     exec(`npm publish --tag ${tag}`, opts);
-    exec(`git commit -a -m 'Upgrade version to ${version}'`, opts);
+
+    // NPM version sometimes doesn't execute the commit. Not sure
+    // why  npm / nvm / yarn ? If there's nothing to commit, that's fine
+    // and this is just a noop that errors exec.
+    try {
+      exec(`git commit -a -m 'Upgrade version to ${version}'`, opts);
+    } catch(err){
+      // ignore
+    }
+
     exec(`git push`);
     input.close();
     return;
