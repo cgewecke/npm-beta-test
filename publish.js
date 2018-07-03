@@ -99,7 +99,7 @@ input.question(warn + quest, (answer) => {
       // ignore
     }
 
-    exec(`git push`);
+    exec(`git push`, opts);
     input.close();
     return;
   }
